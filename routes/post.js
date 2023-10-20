@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
+const { set } = require("mongoose");
 
 router.post("/post", async (req, res) => {
   const post = new Post({
@@ -40,6 +41,17 @@ router.delete("/post/:id", async (req, res) => {
   try {
     const deletePost = await Post.deleteOne({ _id: req.params.id });
     res.json(deletePost);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+router.patch("/post/:id", async (req, res) => {
+  try {
+    const updateTitle = await Post.updateOne(
+      { _id: req.params.id },
+      { $set: { title: req.body.title } }
+    );
+    res.json(updateTitle);
   } catch (err) {
     res.json({ message: err });
   }
