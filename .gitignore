@@ -1,0 +1,19 @@
+# Node.js
+node_modules/
+npm-debug.log
+.npm
+.yarn
+.pnp.cjs
+pnp.js
+.nyc_output/
+coverage/
+.DS_Store
+.vscode/
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env*.local
+.cache/
+.idea/
