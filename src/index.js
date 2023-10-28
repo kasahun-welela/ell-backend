@@ -4,11 +4,13 @@ const mongoose = require("mongoose");
 require("dotenv/config");
 const postRoute = require("../routes/post");
 const cors = require("cors");
+const authRoute = require("../routes/authentication");
+const port = 3005;
 
 app.use(cors());
 app.use(express.json());
-const port = 3005;
 app.use(postRoute);
+app.use(authRoute);
 
 const url = process.env.DB_CONNECTION;
 
